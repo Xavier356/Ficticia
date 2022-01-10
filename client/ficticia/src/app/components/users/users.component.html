@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container">
+<h2>Lista de usuarios</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre completo</th>
+      <th scope="col">Identificación</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Género</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Atributos adicionales</th>
+      <a routerLink="create"><button type="button" class="btn btn-success">Crear usuario</button></a>  
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let user of users| paginate: { itemsPerPage: 10, currentPage: p }">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.full_name}}</td>
+      <td>{{user.identification}}</td>
+      <td>{{user.age}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.state}}</td>
+      <td>{{user.add_attrs}}</td>
+      <td>
+          <a routerLink="edit/{{user.id}}"><button type="button" class="btn btn-primary">Editar usuario</button></a>
+          <a routerLink="show/{{user.id}}"><button type="button" class="btn btn-secondary">Ver usuario</button></a>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Borrar usuario</button>
+      </td>
+    </tr> 
+  </tbody>
+</table> 
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

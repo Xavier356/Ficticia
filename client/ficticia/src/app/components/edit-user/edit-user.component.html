@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-6">                                                           
+            <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()"> 
+              <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Editar usuario</h1>
+              <div class="alert alert-danger" role="alert" *ngIf="isError">
+               ¡Algo está mal!
+              </div>     
+              <div class="form-group">
+                <input type="text" id="full_name" formControlName="full_name" class="form-control" placeholder="full_name" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="identification" formControlName="identification" class="form-control" placeholder="identification" required>
+              </div>
+              <div class="form-group">
+                  <input type="text" id="age" formControlName="age" class="form-control" placeholder="age" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="gender" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="state" formControlName="state" class="form-control" placeholder="state" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="add_attrs" formControlName="add_attrs" class="form-control" placeholder="add_attrs" required>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Actualizar</button>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
